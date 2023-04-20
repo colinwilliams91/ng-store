@@ -17,10 +17,16 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProductsHeaderComponent } from './pages/home/components/products-header/products-header.component'; /* <-- `$ng g c` CLI imports and declares for component use/routing */
 
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [ /* <-- allows components to be routed and used */
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    ProductsHeaderComponent
   ],
   imports: [
     BrowserModule,
