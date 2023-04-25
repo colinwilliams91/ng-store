@@ -23,6 +23,7 @@ import { ProductsHeaderComponent } from './pages/home/components/products-header
 import { FiltersComponent } from './pages/home/components/filters/filters.component';
 import { ProductBoxComponent } from './pages/home/components/product-box/product-box.component';
 import { CartComponent } from './pages/cart/cart.component'; /* <-- `$ng g c` CLI imports and declares for component use/routing */
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [ /* <-- allows components to be routed and used */
@@ -51,7 +52,7 @@ import { CartComponent } from './pages/cart/cart.component'; /* <-- `$ng g c` CL
     MatBadgeModule,
     MatSnackBarModule,
   ],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
