@@ -10,7 +10,7 @@
   <mat-menu #menu="matMenu">
     <div class="p-3 divide-y divide-solid">
       <div class="pb-3 flex justify-between">
-        <span class="mr-16">{{itemsQuantity}}</span>
+        <span class="mr-16">{{itemsQuantity}} Items</span>
         <a routerLink="cart">View Cart</a>
       </div>
       <div *ngIf="cart.items.length" class="py-3">
@@ -26,7 +26,9 @@
         <span class="font-bold">{{ getTotal(cart.items) | currency }}</span>
       </div>
       <div class="pt-3 flex justify-between">
-        <button class="bg-orange-800 text-white rounded-full w-9 h-9">
+        <button
+          (click)="onClearCart()"
+          class="bg-orange-800 text-white rounded-full w-9 h-9">
           <mat-icon>remove_shopping_cart</mat-icon>
         </button>
         <button

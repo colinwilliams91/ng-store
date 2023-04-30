@@ -23,10 +23,14 @@ export class HeaderComponent {
       .reduce((acc, cur) => acc + cur, 0)
   }
 
-  constructor(private cartService: CartService) { } // <-- "private" = only use this service inside our component, not the html
-
+  constructor(private cartService: CartService) { } // <-- "private" = only use this service inside our class component
+  // <-- if we want to use above service in our html omit `private`
   getTotal(items: Array<CartItem>): number {
-    return this.cartService.getTotal(items);
+    return this.cartService.getTotal(items); // <-- from `cart.service.ts` received in constructor
+  }
+
+  onClearCart() { // <-- empties cart and emits
+    this.cartService.clearCart();
   }
 
 }

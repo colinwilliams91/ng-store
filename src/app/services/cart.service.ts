@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Cart, CartItem } from '../models/cart.model'; // <-- import Cart model to be used accross app
 import { MatSnackBar } from '@angular/material/snack-bar';
-// used `ng g s cart` to init this service file
+// used `ng g s cart` to init this service file (services are how we export a class w/ methods)
 // import manually into app.module.ts and inject into `providers` array
 
 @Injectable({
@@ -24,7 +24,7 @@ export class CartService { // across app and used to update items: [], receive n
 
     this.cart.next({ items }) // <-- { items: items }
     this._snackBar.open('1 item added to cart.', 'Ok', { duration: 3000 }); // <-- display args for 3 seconds to U/I
-    console.log(this.cart.value);
+
 
   }
 
@@ -32,6 +32,11 @@ export class CartService { // across app and used to update items: [], receive n
     return items
     .map((item) => item.price * item.quantity)
     .reduce((prev, cur) => prev + cur, 0)
+  }
+
+  clearCart(): void {
+    this.cart.next({ items: [] }); // <-- empties cart array
+    this._snackBar.open('Cart is cleared.', 'Ok', { duration: 3000 }); // <-- display
   }
 
 }
