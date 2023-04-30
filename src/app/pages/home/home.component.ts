@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit { // <-- typescript Class that defi
     this.category = newCategory;
   }
 
-  onAddToCart(product: Product): void { // <-- receives value from (addToCart)="onAddToCart($event)" in home-componet.html
-    this.cartService.addToCart({ // <-- use service to parse received values
+  onAddToCart(product: Product): void { // <-- receives value from (addToCart)="onAddToCart($event)" in <app-product-box> home.component.html...
+    this.cartService.addToCart({ // <-- use service to parse received values, method defined in `cart.service.ts`
       product: product.image,
       name: product.title,
       price: product.price,

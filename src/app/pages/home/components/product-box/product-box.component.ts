@@ -23,7 +23,7 @@ export class ProductBoxComponent implements OnInit {
   }
 
   onAddToCart(): void {
-    this.addToCart.emit(this.product); // <-- emit $event value up to parent through UI/html, injected to cart w/ service
-  }
+    this.addToCart.emit(this.product); // <-- catches input via html invocation (click)
+  } // <-- emit $event value up to parent through @output EventEmitter, eventually injected to cart w/ service
 
 }
