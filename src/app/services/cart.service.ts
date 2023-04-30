@@ -28,4 +28,10 @@ export class CartService { // across app and used to update items: [], receive n
 
   }
 
+  getTotal(items: Array<CartItem>): number {
+    return items
+    .map((item) => item.price * item.quantity)
+    .reduce((prev, cur) => prev + cur, 0)
+  }
+
 }
