@@ -34,7 +34,7 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService) { } // <-- CartService class (service) with `.getTotal()`
 
-  ngOnInit(): void {  // <-- store in local storage to persist thru refresh?
+  ngOnInit(): void {  // <-- store in local storage to persist thru refresh? session?
     this.cartService.cart.subscribe((_cart: Cart) => { // <-- subscribe to cart to update cart page
       this.cart = _cart;
       this.dataSource = this.cart.items;
