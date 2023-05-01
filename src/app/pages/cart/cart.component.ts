@@ -34,8 +34,11 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService) { } // <-- CartService class (service) with `.getTotal()`
 
-  ngOnInit(): void {
-    this.dataSource = this.cart.items;
+  ngOnInit(): void {  // <-- store in local storage to persist thru refresh?
+    this.cartService.cart.subscribe((_cart: Cart) => { // <-- subscribe to cart to update cart page
+      this.cart = _cart;
+      this.dataSource = this.cart.items;
+    });
   }
 
   getTotal(items: Array<CartItem>): number {
