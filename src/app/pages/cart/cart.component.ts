@@ -45,4 +45,8 @@ export class CartComponent implements OnInit {
     return this.cartService.getTotal(items); // <-- from `cart.service.ts` received in constructor
   }
 
+  onClearcart(): void {
+    this.cartService.clearCart();
+  }
+
 }

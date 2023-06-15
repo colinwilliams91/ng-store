@@ -23,3 +23,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 Run `ng help` or the [Angular CLI Docs](https://angular.io/cli).
+
+## TODO
+
+Implement local storage cart saving. See `cart.component.ts` among other files.
