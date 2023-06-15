@@ -39,4 +39,10 @@ export class CartService { // across app and used to update items: [], receive n
     this._snackBar.open('Cart is cleared.', 'Ok', { duration: 3000 }); // <-- display
   }
 
+  removeFromCart(item: CartItem): void {
+    const filteredItems = this.cart.value.items.filter((_item) => _item.id !== item.id);
+    this.cart.next({ items: filteredItems });
+    this._snackBar.open('1 item removed from cart.', 'Ok', { duration: 3000 });
+  }
+
 }
