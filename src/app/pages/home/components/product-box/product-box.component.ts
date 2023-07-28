@@ -7,14 +7,7 @@ import { Product } from 'src/app/models/product.model';
 })
 export class ProductBoxComponent implements OnInit {
   @Input() fullWidthMode = false;
-  product: Product | undefined = {
-    id: 1,
-    title: 'Mouse Pad',
-    price: 50,
-    category: 'peripherals',
-    description: 'Description',
-    image: 'https://via.placeholder.com/150'
-  };
+  @Input() product: Product | undefined; // <-- changed to @Input() to be passed to home.component.html for dynamic loop/render *ngFor
   @Output() addToCart = new EventEmitter(); // <-- communicate between child and parent component (event emitter)
 
   constructor() { }
