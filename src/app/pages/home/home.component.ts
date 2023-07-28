@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit, OnDestroy { // <-- typescript Clas
   }
 
   getProducts(): void {
-    this.productSubscription = this.storeService.getAllProducts(this.count, this.sort)
+    this.productSubscription = this.storeService.getAllProducts(this.count, this.sort, this.category)
       .subscribe((_products) => {
         this.products = _products;
       });
@@ -39,7 +39,10 @@ export class HomeComponent implements OnInit, OnDestroy { // <-- typescript Clas
 
   onShowCategory(newCategory: string): void {
     this.category = newCategory;
+    this.getProducts();
   }
+
+  // TODO: add a way to clear category (need html, event, fn, and invoke service getAllCategories())
 
   onAddToCart(product: Product): void { // <-- receives value from (addToCart)="onAddToCart($event)" in <app-product-box> home.component.html...
     this.cartService.addToCart({ // <-- use service to parse received values, method defined in `cart.service.ts`
