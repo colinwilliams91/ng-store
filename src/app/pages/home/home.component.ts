@@ -57,6 +57,16 @@ export class HomeComponent implements OnInit, OnDestroy { // <-- typescript Clas
     }
   }
 
+  onItemsCountChange(newCount: number): void {
+    this.count = newCount.toString(); // <-- changes "state" of count
+    this.getProducts(); // <-- fetches all products again with updated params
+  }
+
+  onSortChange(newSort: string):void {
+    this.sort = newSort;
+    this.getProducts()
+  }
+
 }
 
 // <-- below is an example of declaring multiple LifeCycle Hook method interfaces
