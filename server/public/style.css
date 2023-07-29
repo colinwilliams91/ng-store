@@ -78,3 +78,7 @@ button {
 button:hover {
   opacity: 0.8;
 }
+span {
+  margin-left: 1rem;
+  margin-bottom: 1.5rem;
+}
