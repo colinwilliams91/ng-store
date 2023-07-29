@@ -62,11 +62,12 @@ export class CartComponent implements OnInit {
   onRemoveQuantity(item: CartItem):void {
     this.cartService.removeQuantity(item);
   }
-
+  // TODO: move "publishable key" STRIPE API key to .env
   onCheckout(): void {
     this.http.post('http://localhost:4242/checkout', {
       items: this.cart.items
     }).subscribe(async (res: any) => {
+      // <-- stripe developer dashboard API keys: "publishable key"
       let stripe = await loadStripe('pk_test_51NZ3VfDHtd9HD34XmilRuBujv2RmwfZhD1GwMw1X7QeC4v9FwJKChcBnZNeBDgkh5PtEqGWQRROhWNK8uMfQ2Caa00RyFSulj4');
       stripe?.redirectToCheckout({
         sessionId: res.id
